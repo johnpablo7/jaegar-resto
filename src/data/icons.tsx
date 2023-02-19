@@ -1,4 +1,9 @@
 import HomeIcon from "../Svg/HomeIcon";
+import DiscountIcon from "../Svg/DiscountIcon";
+import DashboardIcon from "../Svg/DashboardIcon";
+import MessageIcon from "../Svg/MessageIcon";
+import NotificationIcon from "../Svg/NotificationIcon";
+import SettingIcon from "../Svg/SettingIcon";
 
 export const icons = [
   {
@@ -9,26 +14,26 @@ export const icons = [
   {
     id: 2,
     path: "/",
-    url: "/icons/Discount.svg",
+    url: <DiscountIcon />,
   },
   {
     id: 3,
     path: "/",
-    url: "/icons/Dashboard.svg",
+    url: <DashboardIcon />,
   },
   {
     id: 4,
     path: "/",
-    url: "/icons/Message.svg",
+    url: <MessageIcon />,
   },
   {
     id: 5,
     path: "/",
-    url: "/icons/Notification.svg",
+    url: <NotificationIcon />,
   },
   {
     id: 6,
     path: "/",
-    url: "/icons/Setting.svg",
+    url: <SettingIcon />,
   },
 ];
