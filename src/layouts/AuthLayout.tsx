@@ -9,10 +9,12 @@ import {
   RiMenu3Fill,
   RiCloseLine,
   RiSearch2Line,
+  RiArrowDownSLine,
 } from "react-icons/ri";
 import { Sidebar } from "../components/shared/Sidebar";
 import { NavLink } from "react-router-dom";
 import { tabs } from "../data/tabs.js";
+import clsx from "clsx";
 
 export const AuthLayout = () => {
   const [showMenu, setShowMenu] = useAtom(menuAtom);
@@ -41,15 +43,15 @@ export const AuthLayout = () => {
           {showMenu ? <RiCloseLine /> : <RiMenu3Fill />}
         </button>
       </nav>
-      <main className="lg:pl-28 grid grid-cols-1 lg:grid-cols-8">
+      <main className="lg:pl-28 grid grid-cols-1 lg:grid-cols-8 p-4">
         <div className="lg:col-span-6">
           {/* Header */}
-          <header className="p-4">
+          <header>
             {/* Title and Search */}
-            <div className="flex flex-col gap-4 mb-6">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
               <div>
                 <h1 className="text-2xl text-gray-300 font-bold">
-                  Pizzeria Destok
+                  Pizzeria Resto
                 </h1>
                 <p className="text-gray-500">18 febero 2023</p>
               </div>
@@ -66,18 +68,45 @@ export const AuthLayout = () => {
             </div>
             {/* Tabs */}
             <nav>
-              <ul className="text-gray-300 flex items-center justify-between border-b">
+              <ul className="text-gray-300 flex items-center justify-between md:justify-start md:gap-8 border-b mb-6">
                 {tabs.map((list) => (
-                  <li
-                    key={list.id}
-                    className="relative py-2 pr-4 before:w-1/2 before:h-[2px] before:absolute before:bg-terracotta before:left-0 before:rounded-full before:-bottom-[1px] text-terracotta font-bold"
-                  >
-                    <NavLink to={list.path}>{list.name}</NavLink>
+                  <li key={list.id} className="py-2">
+                    <NavLink
+                      to={list.path}
+                      className={({ isActive }) =>
+                        clsx(
+                          "font-bold pr-4 relative before:w-1/2 before:h-[4px] before:absolute before:left-0 before:rounded-full before:-bottom-[11px]",
+                          isActive
+                            ? "before:bg-terracotta text-terracotta"
+                            : "text-gray-300"
+                        )
+                      }
+                    >
+                      {list.name}
+                    </NavLink>
                   </li>
                 ))}
               </ul>
             </nav>
           </header>
+          {/* Title content */}
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-xl text-gray-300 font-bold">Choose Diches</h2>
+            <button className="flex items-center gap-4 text-gray-300 bg-mirage py-2 px-4 rounded-lg">
+              <RiArrowDownSLine /> Dine in
+            </button>
+          </div>
+          {/* Content */}
+          <div>
+            {/* Card */}
+            <div className="bg-mirage p-8">
+              <img
+                src="../../public/images/pizza-hawaiana1.png"
+                alt="beef"
+                className="w-40 h-40 object-cover"
+              />
+            </div>
+          </div>
         </div>
         <div className="lg:col-span-2 fixed lg:static right-0">Carrito</div>
       </main>
