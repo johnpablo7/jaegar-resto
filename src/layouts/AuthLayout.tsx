@@ -15,6 +15,7 @@ import { Sidebar } from "../components/shared/Sidebar";
 import { NavLink } from "react-router-dom";
 import { tabs } from "../data/tabs.js";
 import clsx from "clsx";
+import { cards } from "../data/cards.js";
 
 export const AuthLayout = () => {
   const [showMenu, setShowMenu] = useAtom(menuAtom);
@@ -43,8 +44,8 @@ export const AuthLayout = () => {
           {showMenu ? <RiCloseLine /> : <RiMenu3Fill />}
         </button>
       </nav>
-      <main className="lg:pl-28 grid grid-cols-1 lg:grid-cols-8 p-4">
-        <div className="lg:col-span-6">
+      <main className="lg:pl-32 grid grid-cols-1 lg:grid-cols-8 p-4 pb-16">
+        <div className="lg:col-span-6 md:p-8">
           {/* Header */}
           <header>
             {/* Title and Search */}
@@ -90,25 +91,37 @@ export const AuthLayout = () => {
             </nav>
           </header>
           {/* Title content */}
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-16">
             <h2 className="text-xl text-gray-300 font-bold">Choose Diches</h2>
             <button className="flex items-center gap-4 text-gray-300 bg-mirage py-2 px-4 rounded-lg">
               <RiArrowDownSLine /> Dine in
             </button>
           </div>
           {/* Content */}
-          <div>
+          <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24">
             {/* Card */}
-            <div className="bg-mirage p-8">
-              <img
-                src="../../public/images/pizza-hawaiana1.png"
-                alt="beef"
-                className="w-40 h-40 object-cover"
-              />
-            </div>
+            {cards.map((card) => (
+              <div
+                key={card.id}
+                className="bg-mirage p-8 rounded-xl flex flex-col items-center gap-2 text-center text-gray-300"
+              >
+                <img
+                  src={card.img}
+                  alt="beef"
+                  className="w-40 h-40 object-cover -mt-24 shadow-2xl rounded-full"
+                />
+                <p className="text-xl">{card.title}</p>
+                <span className="text-gray-400">{card.price}</span>
+                <p className="text-gray-600">{card.available}</p>
+              </div>
+            ))}
           </div>
         </div>
-        <div className="lg:col-span-2 fixed lg:static right-0">Carrito</div>
+        <div className="lg:col-span-2 fixed lg:static right-0 top-0 bg-mirage w-full h-full">
+          <div className="relative">
+            <RiCloseLine className="absolute" />
+          </div>
+        </div>
       </main>
     </div>
   );
