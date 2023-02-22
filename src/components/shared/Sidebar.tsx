@@ -21,14 +21,6 @@ export const Sidebar = () => {
               <LogoIcon />
             </NavLink>
           </li>
-          {/* <li className="bg-charade p-4 rounded-tl-xl rounded-bl-xl">
-            <Link
-              to="/"
-              className="bg-terracotta p-4 flex justify-center rounded-xl text-white"
-            >
-              <RiHome6Line className="text-2xl" />
-            </Link>
-          </li> */}
           {icons.map((link) => (
             <li
               key={link.id}
