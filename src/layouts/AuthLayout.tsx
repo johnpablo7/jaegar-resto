@@ -11,11 +11,13 @@ import {
   RiSearch2Line,
   RiArrowDownSLine,
 } from "react-icons/ri";
+import Delete from "../Svg/Delete";
 import { Sidebar } from "../components/shared/Sidebar";
 import { NavLink } from "react-router-dom";
-import { tabs } from "../data/tabs.js";
 import clsx from "clsx";
+import { tabs } from "../data/tabs.js";
 import { cards } from "../data/cards.js";
+import { buttons } from "../data/buttons.js";
 
 export const AuthLayout = () => {
   const [showMenu, setShowMenu] = useAtom(menuAtom);
@@ -118,8 +120,81 @@ export const AuthLayout = () => {
           </div>
         </div>
         <div className="lg:col-span-2 fixed lg:static right-0 top-0 bg-mirage w-full h-full">
-          <div className="relative">
-            <RiCloseLine className="absolute" />
+          {/* Orders */}
+          <div className="relative pt-16 text-gray-300 p-6">
+            <RiCloseLine className="absolute left-4 top-4 p-3 box-content text-gray-300 bg-charade rounded-full text-xl" />
+            <h1 className="text-2xl mt-4 mb-6 font-semibold">Orders #34562</h1>
+            {/* Pills */}
+            <div className="flex items-center gap-2 flex-wrap mb-8">
+              {buttons.map((selects) => (
+                <NavLink
+                  to={selects.path}
+                  key={selects.id}
+                  className={({ isActive }) =>
+                    clsx(
+                      "py-2 px-4 rounded-xl font-semibold",
+                      isActive
+                        ? "bg-terracotta text-white"
+                        : "text-terracotta border border-gray-500"
+                    )
+                  }
+                >
+                  {selects.name}
+                </NavLink>
+              ))}
+            </div>
+            {/* Car */}
+            <div>
+              <div className="grid grid-cols-6 mb-4 font-semibold">
+                <h5 className="col-span-4">Item</h5>
+                <h5 className="text-center">Qty</h5>
+                <h5 className="text-end">Prices</h5>
+              </div>
+              {/* Product */}
+              <div className="py-4 rounded-xl">
+                <div className="grid grid-cols-6 mb-4">
+                  {/* Product description */}
+                  <div className="col-span-4 flex items-center gap-3">
+                    <img
+                      src="/images/spicy.png"
+                      alt="spicy"
+                      className="w-14 h-14 object-cover"
+                    />
+                    <div>
+                      <h5 className="text-sm font-semibold">
+                        Spicy seasoned seafood noodles
+                      </h5>
+                      <p className="text-xs text-gray-500 font-semibold">
+                        $ 2.29
+                      </p>
+                    </div>
+                  </div>
+                  {/* Quantity */}
+                  <div className="bg-charade w-14 h-14 flex items-center justify-center text-center place-items-center font-semibold border border-gray-600 rounded-xl">
+                    <span>22</span>
+                  </div>
+                  {/* Price */}
+                  <div className="flex items-center justify-center text-center font-semibold">
+                    <span>$ 14.58</span>
+                  </div>
+                </div>
+                {/* Note */}
+                <div className="grid grid-cols-6 items-center gap-3">
+                  <form className="col-span-5">
+                    <input
+                      type="text"
+                      placeholder="Escribe tu comentario..."
+                      className="bg-charade py-3 px-4 border border-gray-600 rounded-lg w-full outline-none"
+                    />
+                  </form>
+                  <div className="flex items-center justify-center">
+                    <button className="">
+                      <Delete className="" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
