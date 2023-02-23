@@ -10,7 +10,7 @@ export const Sidebar = () => {
 
   return (
     <div
-      className={`bg-mirage fixed lg:left-0 top-0 w-28 h-full flex flex-col justify-between rounded-tr-xl rounded-br-xl z-50 transition-all ${
+      className={`bg-mirage fixed lg:left-0 top-0 w-[110px] h-full flex flex-col justify-between rounded-tr-xl rounded-br-xl z-50 transition-all ${
         showMenu ? "left-0" : "-left-full"
       }`}
     >
