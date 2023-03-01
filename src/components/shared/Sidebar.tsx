@@ -1,18 +1,23 @@
-import { useAtom } from "jotai";
-import { menuAtom } from "../../atoms/sidebar";
+import { useAtomValue } from "jotai";
+import { mobileMenuAtom } from "../../atoms/sidebar";
 import { NavLink } from "react-router-dom";
 import { icons } from "../../data/icons";
 import LogoIcon from "../../Svg/LogoIcon";
 import LogoutIcon from "../../Svg/LogoutIcon";
+import clsx from "clsx";
 
 export const Sidebar = () => {
-  const showMenu = useAtom(menuAtom);
+  const showMobileMenu = useAtomValue(mobileMenuAtom);
 
   return (
     <div
-      className={`bg-mirage fixed lg:left-0 top-0 w-[110px] h-full flex flex-col justify-between rounded-tr-xl rounded-br-xl z-50 transition-all ${
-        showMenu ? "left-0" : "-left-full"
-      }`}
+      className={clsx(
+        // Mobile
+        `bg-mirage fixed top-0 w-[110px] h-full flex flex-col justify-between rounded-tr-xl rounded-br-xl z-50 transition-all`,
+        showMobileMenu ? "left-0" : "-left-full",
+        // Desktop
+        `lg:left-0`
+      )}
     >
       <div>
         <ul className="pl-4">

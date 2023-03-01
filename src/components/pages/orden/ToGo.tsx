@@ -1,3 +1,3 @@
 export const ToGo = () => {
-  return <div>to-go</div>;
+  return <div></div>;
 };

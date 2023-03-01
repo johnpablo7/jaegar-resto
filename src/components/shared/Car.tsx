@@ -2,29 +2,27 @@ import clsx from "clsx";
 import { useAtom } from "jotai";
 import { NavLink } from "react-router-dom";
 import { RiCloseLine } from "react-icons/ri";
-import { orderAtom } from "../../atoms/sidebar";
+import { mobileOrderAtom } from "../../atoms/sidebar";
 import { buttons } from "../../data/buttons";
 import { cards } from "../../data/cards";
 import Delete from "../../Svg/Delete";
 
 export const Car = () => {
-  const [showOrder, setShowOrder] = useAtom(orderAtom);
-
-  // const toggleOrders = () => {
-  //   setShowOrder(!showOrder);
-  //   setShowMenu(false);
-  // };
+  const [showMobileOrder, setShowMobileOrder] = useAtom(mobileOrderAtom);
 
   return (
     <div
-      className={`lg:col-span-2 fixed top-0 bg-mirage w-full lg:w-[420px] lg:right-0 h-full transition-all z-50 ${
-        showOrder ? "right-0" : "-right-full"
-      }`}
+      className={clsx(
+        // Mobile
+        `lg:col-span-2 fixed top-0 bg-mirage w-full lg:w-[420px] h-full transition-all z-50`,
+        showMobileOrder ? "right-0" : "-right-full",
+        `lg:right-0`
+      )}
     >
       {/* Orders */}
       <div className="relative pt-16 lg:pt-4 text-gray-300 p-6 lg:p-4 h-full">
         <RiCloseLine
-          onClick={() => setShowOrder(false)}
+          onClick={() => setShowMobileOrder(false)}
           className="lg:hidden absolute left-4 top-4 p-3 box-content text-gray-300 bg-charade rounded-full text-xl"
         />
         <h1 className="text-2xl mt-4 mb-6 font-semibold">Orders #34562</h1>
@@ -64,7 +62,7 @@ export const Car = () => {
                   <div className="col-span-4 flex items-center gap-3">
                     <img
                       src={order.img}
-                      alt="spicy"
+                      alt="img"
                       className="w-14 h-14 object-cover"
                     />
                     <div>

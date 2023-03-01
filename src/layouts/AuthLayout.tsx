@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { menuAtom, orderAtom } from "../atoms/sidebar.js";
+import { mobileMenuAtom, mobileOrderAtom } from "../atoms/sidebar.js";
 import {
   RiHome3Line,
   RiUser3Line,
@@ -16,23 +16,23 @@ import { Header } from "../components/shared/Header.js";
 import { Card } from "../components/shared/Card.js";
 
 export const AuthLayout = () => {
-  const [showMenu, setShowMenu] = useAtom(menuAtom);
-  const [showOrder, setShowOrder] = useAtom(orderAtom);
+  const [showMobileMenu, setShowMobileMenu] = useAtom(mobileMenuAtom);
+  const [showMobileOrder, setShowMobileOrder] = useAtom(mobileOrderAtom);
 
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
-    setShowOrder(false);
+  const toggleMobileMenu = () => {
+    setShowMobileMenu(!showMobileMenu);
+    setShowMobileOrder(false);
   };
 
-  const toggleOrders = () => {
-    setShowOrder(!showOrder);
-    setShowMenu(false);
+  const toggleMobileOrders = () => {
+    setShowMobileOrder(!showMobileOrder);
+    setShowMobileMenu(false);
   };
 
   return (
     <div className="bg-charade w-full min-h-screen">
-      {showMenu && <Sidebar />}
-      {showOrder && <Car />}
+      <Sidebar />
+      <Car />
       {/* Menu movil */}
       <nav className="bg-mirage lg:hidden fixed w-full bottom-0 left-0 text-2xl text-gray-400 py-2 px-8 flex items-center justify-between rounded-tl-xl rounded-tr-xl">
         <button className="p-2">
@@ -44,11 +44,11 @@ export const AuthLayout = () => {
         <button className="p-2">
           <RiAddLine />
         </button>
-        <button onClick={toggleOrders} className="p-2">
+        <button onClick={toggleMobileOrders} className="p-2">
           <RiPieChartLine />
         </button>
-        <button onClick={toggleMenu} className="p-2 text-white">
-          {showMenu ? <RiCloseLine /> : <RiMenu3Fill />}
+        <button onClick={toggleMobileMenu} className="p-2 text-white">
+          {showMobileMenu ? <RiCloseLine /> : <RiMenu3Fill />}
         </button>
       </nav>
       <main className="lg:pl-28 lg:pr-[420px] pb-16">

@@ -8,8 +8,9 @@ import { Hot } from "../components/pages/menu/Hot";
 import { Soup } from "../components/pages/menu/Soup";
 // Order
 import { DineIn } from "../components/pages/orden/DineIn";
-import { ToGo } from "../components/pages/orden/Togo";
+import { ToGo } from "../components/pages/orden/ToGo";
 import { Delivery } from "../components/pages/orden/Delivery";
+import { NotFound } from "../components/pages/NotFound";
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
           <Route path="/dine-in" element={<DineIn />} />
           <Route path="/to-go" element={<ToGo />} />
           <Route path="/delivery" element={<Delivery />} />
+
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
