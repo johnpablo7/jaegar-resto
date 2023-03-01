@@ -9,7 +9,7 @@ export const Header = () => {
       {/* Title and Search */}
       <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
         <div>
-          <h1 className="text-2xl text-gray-300 font-bold">Pizzeria Resto</h1>
+          <h1 className="text-2xl text-gray-300 font-bold">Jaegar Resto</h1>
           <p className="text-gray-500 font-semibold">18 febero 2023</p>
         </div>
         <form action="">
