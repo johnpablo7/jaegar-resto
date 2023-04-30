@@ -56,14 +56,14 @@ export const AuthLayout = () => {
           {/* Header */}
           <Header />
           {/* Title content */}
-          <div className="flex items-center justify-between mb-16">
+          <div className="flex items-center justify-between mb-20">
             <h2 className="text-xl text-gray-300 font-bold">Choose Diches</h2>
             <button className="flex items-center gap-4 text-gray-300 bg-mirage py-2 px-4 rounded-lg font-semibold">
               <RiArrowDownSLine /> Dine in
             </button>
           </div>
           {/* Content */}
-          <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24">
+          <div className="p-8 lg:p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24 md:gap-x-4 md:gap-y-24 2xl:gap-24">
             {/* Card */}
             <Card />
           </div>

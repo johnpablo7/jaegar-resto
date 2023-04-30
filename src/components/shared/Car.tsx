@@ -20,7 +20,7 @@ export const Car = () => {
       )}
     >
       {/* Orders */}
-      <div className="relative pt-16 lg:pt-4 text-gray-300 p-6 lg:p-4 h-full">
+      <div className="relative pt-16 lg:pt-4 text-gray-300 py-6 px-4 lg:p-4 h-full">
         <RiCloseLine
           onClick={() => setShowMobileOrder(false)}
           className="lg:hidden absolute left-4 top-4 p-3 box-content text-gray-300 bg-charade rounded-full text-xl"
@@ -73,7 +73,7 @@ export const Car = () => {
                     </div>
                   </div>
                   {/* Quantity */}
-                  <div className="bg-charade w-14 h-14 flex items-center justify-center text-center md:justify-self-end font-semibold border border-gray-600 rounded-xl">
+                  <div className="bg-charade w-12 h-14 flex items-center justify-center text-center md:justify-self-end font-semibold border border-gray-600 rounded-xl">
                     <span>{order.qty}</span>
                   </div>
                   {/* Price */}
@@ -87,7 +87,7 @@ export const Car = () => {
                     <input
                       type="text"
                       placeholder="Escribe tu comentario..."
-                      className="bg-charade py-3 px-4 border border-gray-600 rounded-lg w-full outline-none"
+                      className="bg-charade py-3 px-4 border border-gray-600 rounded-lg w-[278px] md:w-full outline-none"
                     />
                   </form>
                   <div className="flex items-center justify-center">

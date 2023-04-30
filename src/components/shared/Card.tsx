@@ -6,7 +6,7 @@ export const Card = () => {
       {cards.map((card) => (
         <div
           key={card.id}
-          className="bg-mirage p-8 rounded-xl flex flex-col items-center gap-2 text-center text-gray-300"
+          className="bg-mirage p-8 lg:px-2 lg:py-4 xl:p-8 rounded-xl flex flex-col items-center gap-2 text-center text-gray-300"
         >
           <img
             src={card.img}
